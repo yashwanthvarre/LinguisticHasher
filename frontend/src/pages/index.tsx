@@ -11,6 +11,7 @@ import {
   Flex,
   Icon,
   useToast,
+  Select,
 } from "@chakra-ui/react";
 import { FaKey } from "react-icons/fa";
 import axios from "axios";
@@ -18,9 +19,10 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   const [word, setWord] = useState("");
+  const [language, setLanguage] = useState("japanese"); // Default language
   const [pin, setPin] = useState("");
-  const [devnagari_word, setDevnagariWord] = useState("");
-  const [showResult, setShowResult] = useState(false); // Controls visibility
+  const [translatedWord, setTranslatedWord] = useState("");
+  const [showResult, setShowResult] = useState(false);
 
   const toast = useToast();
 
@@ -38,16 +40,16 @@ export default function Home() {
 
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/generate-pin?word=${word}`
+        `http://127.0.0.1:8000/generate-pin?word=${word}&language=${language}`
       );
 
-      setShowResult(false); // Hide result while fetching new one
+      setShowResult(false);
 
       setTimeout(() => {
         setPin(response.data.pin);
-        setDevnagariWord(response.data.devnagari_word);
-        setShowResult(true); // Show result with animation after delay
-      }, 1000); // 1-second delay before showing results
+        setTranslatedWord(response.data.translated);
+        setShowResult(true);
+      }, 1000);
     } catch (error) {
       console.error("Error fetching PIN:", error);
       toast({
@@ -93,6 +95,14 @@ export default function Home() {
           onChange={(e) => setWord(e.target.value)}
         />
 
+        <Select value={language} onChange={(e) => setLanguage(e.target.value)}>
+          <option value="japanese">Japanese</option>
+          <option value="korean">Korean</option>
+          <option value="devanagari">Devanagari (Hindi)</option>
+          <option value="french">French</option>
+          <option value="german">German</option>
+        </Select>
+
         <Button
           leftIcon={<Icon as={FaKey} />}
           colorScheme="blue"
@@ -119,13 +129,16 @@ export default function Home() {
               textAlign="center"
             >
               <Text fontSize="xl" color="gray.700">
+                Translated Word:
+              </Text>
+              <Text fontSize="2xl" fontWeight="bold" color="blue.600">
+                {translatedWord}
+              </Text>
+              <Text fontSize="xl" color="gray.700">
                 Generated PIN:
               </Text>
               <Text fontSize="3xl" fontWeight="bold" color="blue.600">
                 {pin}
-              </Text>
-              <Text fontSize="3xl" fontWeight="bold" color="blue.600">
-                {devnagari_word}
               </Text>
             </Box>
           </motion.div>
