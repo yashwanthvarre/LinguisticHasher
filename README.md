@@ -41,35 +41,27 @@
    cd LinguisticHasher
 2. **Set up the backend**:
    
- ```bash
-  cd backend
-  python -m venv venv
-  source venv/bin/activate
-  # On Windows: venv\Scripts\activate
-  pip install -r requirements.txt
-  uvicorn app.main:app --reload
+   ```bash
+    cd backend
+    python -m venv venv
+    source venv/bin/activate
+    # On Windows: venv\Scripts\activate
+    pip install -r requirements.txt
+    uvicorn app.main:app --reload
 
 3. **Set up Frontend**
-  ```bash
-  cd ../frontend
-  npm install
-  npm run dev
+    ```bash
+    cd ../frontend
+    npm install
+    npm run dev
 
-  Access the application:
+### Access the application:
+- Open your browser and navigate to http://localhost:3000 to use the application.
+- Enter an English word into the input field.
+- The application transliterates the word into Devanagari script.
+- It analyzes the linguistic features and generates a unique 4-digit PIN.
+- The PIN is displayed on the screen.
 
-Open your browser and navigate to http://localhost:3000 to use the application.
 
-Usage
-Enter an English word into the input field.
-
-The application transliterates the word into Devanagari script.
-
-It analyzes the linguistic features and generates a unique 4-digit PIN.
-
-The PIN is displayed on the screen.
-
-Contributing
-Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
-
-License
+### License
 This project is licensed under the MIT License. See the LICENSE file for details.
