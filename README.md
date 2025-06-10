@@ -62,6 +62,8 @@
 - It analyzes the linguistic features and generates a unique 4-digit PIN.
 - The PIN is displayed on the screen.
 
+  ### Results:
+![Result](https://github.com/yashwanthvarre/LinguisticHasher/blob/57f452faa6cdc7b280d362e06799b0e30adccf4f/Results/Screenshot%202025-06-09%20at%2010.17.20%E2%80%AFPM.png)
 
 ### License
 This project is licensed under the MIT License. See the LICENSE file for details.
