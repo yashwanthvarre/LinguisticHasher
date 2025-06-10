@@ -15,6 +15,7 @@ export default function CustomInput({
 }: CustomInputProps) {
   return (
     <Input
+      boxShadow="0 0 700px 15px white"
       height={20}
       width="100%"
       border="none"
@@ -23,8 +24,8 @@ export default function CustomInput({
       fontSize={60}
       fontFamily="inherit"
       fontWeight={300}
-      borderColor="gray.300"
       borderRadius="md"
+      color="white"
       _focus={{
         borderColor: "blue.500",
         boxShadow: "0 0 10px rgba(0, 0, 255, 0.2)",

@@ -20,19 +20,18 @@ export default function ResultDisplay({
     >
       <Box
         p={4}
-        bg="gray.100"
         borderRadius="md"
-        boxShadow="sm"
+        backgroundColor="black"
         w="full"
         textAlign="center"
       >
-        <Text fontSize="xl" color="gray.700">
+        <Text fontSize="xl" color="white">
           Translated Word:
         </Text>
         <Text fontSize="2xl" fontWeight="bold" color="blue.600">
           {translatedWord}
         </Text>
-        <Text fontSize="xl" color="gray.700">
+        <Text fontSize="xl" color="white">
           Generated PIN:
         </Text>
         <Text fontSize="3xl" fontWeight="bold" color="blue.600">
