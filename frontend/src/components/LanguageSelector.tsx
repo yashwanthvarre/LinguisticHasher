@@ -12,7 +12,7 @@ export default function LanguageSelector({
   onChange,
 }: LanguageSelectorProps) {
   return (
-    <Select value={value} onChange={onChange}>
+    <Select value={value} onChange={onChange} color="white" borderRadius={5}>
       <option value="japanese">Japanese</option>
       <option value="korean">Korean</option>
       <option value="devanagari">Devanagari (Hindi)</option>

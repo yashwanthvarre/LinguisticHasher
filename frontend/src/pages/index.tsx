@@ -58,7 +58,14 @@ export default function Home() {
   };
 
   return (
-    <Flex justify="center" align="center" height="100vh" p={4}>
+    <Flex
+      justify="center"
+      align="center"
+      height="100vh"
+      p={4}
+      backgroundColor="black"
+      backgroundImage="url('/gradient.png')"
+    >
       <VStack
         spacing={6}
         p={8}
@@ -67,8 +74,8 @@ export default function Home() {
         textAlign="center"
         position="absolute"
       >
-        <Heading size="lg" color="gray.700">
-          Enter a word to generate a PIN
+        <Heading size="lg" color="e7e7e7">
+          Enter a word to generate PIN
         </Heading>
         <CustomInput
           value={word}
@@ -81,11 +88,15 @@ export default function Home() {
         />
         <Button
           leftIcon={<Icon as={FaKey} />}
-          colorScheme="blue"
-          borderRadius={30}
-          size="lg"
-          onClick={handleFetchPin}
-          _hover={{ bg: "blue.600" }}
+          bg="#a7a7a7"
+          color="black"
+          p="0.8rem 2rem"
+          borderRadius="50px"
+          border="none"
+          fontSize="1rem"
+          fontWeight="500"
+          transition="background-color 0.3s ease"
+          cursor="pointer"
         >
           Generate PIN
         </Button>
