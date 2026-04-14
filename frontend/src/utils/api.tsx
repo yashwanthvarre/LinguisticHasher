@@ -5,9 +5,9 @@ interface PinResponse {
   translated: string;
 }
 
-export async function fetchPin(word, language): Promise<PinResponse> {
+export async function fetchPin(word: string, language: string): Promise<PinResponse> {
   const response = await axios.get(
-    `http://127.0.0.1:8000/generate-pin?word=${word}&language=${language}`
+    `http://127.0.0.1:8000/generate-pin?word=${encodeURIComponent(word)}&language=${encodeURIComponent(language)}`
   );
   return response.data;
 }

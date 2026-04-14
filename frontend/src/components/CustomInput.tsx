@@ -1,6 +1,6 @@
 import React from "react";
-
-import { Input } from "@chakra-ui/react";
+import { Input, InputGroup, InputLeftElement, Text } from "@chakra-ui/react";
+import { HiOutlineSparkles } from "react-icons/hi2";
 
 interface CustomInputProps {
   value: string;
@@ -14,25 +14,33 @@ export default function CustomInput({
   placeholder,
 }: CustomInputProps) {
   return (
-    <Input
-      boxShadow="0 0 700px 15px white"
-      height={20}
-      width="100%"
-      border="none"
-      textAlign="center"
-      placeholder={placeholder}
-      fontSize={60}
-      fontFamily="inherit"
-      fontWeight={300}
-      borderRadius="md"
-      color="white"
-      _focus={{
-        borderColor: "blue.500",
-        boxShadow: "0 0 10px rgba(0, 0, 255, 0.2)",
-      }}
-      _hover={{ borderColor: "blue.400" }}
-      value={value}
-      onChange={onChange}
-    />
+    <InputGroup size="lg">
+      <InputLeftElement pointerEvents="none" pl={2}>
+        <Text color="rgba(209, 255, 245, 0.7)">
+          <HiOutlineSparkles />
+        </Text>
+      </InputLeftElement>
+      <Input
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        h="68px"
+        pl="54px"
+        fontSize={{ base: "md", md: "lg" }}
+        fontWeight="500"
+        color="white"
+        bg="rgba(7, 14, 24, 0.72)"
+        border="1px solid"
+        borderColor="rgba(138, 247, 223, 0.18)"
+        borderRadius="24px"
+        backdropFilter="blur(14px)"
+        _placeholder={{ color: "rgba(214, 230, 255, 0.38)" }}
+        _hover={{ borderColor: "rgba(138, 247, 223, 0.35)" }}
+        _focusVisible={{
+          borderColor: "#8af7df",
+          boxShadow: "0 0 0 1px rgba(138, 247, 223, 0.55)",
+        }}
+      />
+    </InputGroup>
   );
 }
