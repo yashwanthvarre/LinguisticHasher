@@ -1,16 +1,21 @@
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import Home from "../src/pages";
-import { fetchPin } from "../src/utils/api";
+import { renderWithProviders } from "./test-utils";
 
-jest.mock("../src/utils/api");
+jest.mock("next/dynamic", () => () => {
+  const MockOrbitalScene = () => <div data-testid="orbital-scene" />;
+  MockOrbitalScene.displayName = "MockOrbitalScene";
+  return MockOrbitalScene;
+});
 
 describe("Home", () => {
   it("renders heading and input", () => {
-    render(<Home />);
+    renderWithProviders(<Home />);
     expect(
-      screen.getByText(/Enter a word to generate a PIN/i)
+      screen.getByText(/Turn words into cinematic four-digit identity codes/i)
     ).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/Type here/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/Try “horizon”, “signal”, or “memory”/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Generate PIN/i })).toBeInTheDocument();
   });
 });

@@ -7,7 +7,7 @@ interface ResultDisplayProps {
   pin: string;
 }
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 export default function ResultDisplay({
   translatedWord,
